@@ -5,24 +5,24 @@ var input = document.getElementById('input'),
 	operator = document.querySelectorAll('.operators div'),
 	result = document.getElementById('result'),
 	clear = document.getElementById('clear'),
-	result_displayed = false
+	resultDisplayed = false
 
 for (var i = 0; i < number.length; i++) {
 	number[i].addEventListener('click', function (e) {
-		var current_string = input.innerHTML
-		var last_char = current_string[current_string.length - 1]
-		if (result_displayed === false) {
+		var currentString = input.innerHTML
+		var lastChar = currentString[currentString.length - 1]
+		if (resultDisplayed === false) {
 			input.innerHTML += e.target.innerHTML
 		} else if (
-			(result_displayed === true && last_char === '+') ||
-			last_char === '-' ||
-			last_char === '×' ||
-			last_char === '÷'
+			(resultDisplayed === true && lastChar === '+') ||
+			lastChar === '-' ||
+			lastChar === '×' ||
+			lastChar === '÷'
 		) {
-			result_displayed = false
+			resultDisplayed = false
 			input.innerHTML += e.target.innerHTML
 		} else {
-			result_displayed = false
+			resultDisplayed = false
 			input.innerHTML = ''
 			input.innerHTML += e.target.innerHTML
 		}
@@ -31,19 +31,19 @@ for (var i = 0; i < number.length; i++) {
 
 for (var i = 0; i < operator.length; i++) {
 	operator[i].addEventListener('click', function (e) {
-		var current_string = input.innerHTML
-		var last_char = current_string[current_string.length - 1]
+		var currentString = input.innerHTML
+		var lastChar = currentString[currentString.length - 1]
 		if (
-			last_char === '+' ||
-			last_char === '-' ||
-			last_char === '×' ||
-			last_char === '÷'
+			lastChar === '+' ||
+			lastChar === '-' ||
+			lastChar === '×' ||
+			lastChar === '÷'
 		) {
 			var newString =
-				current_string.substring(0, current_string.length - 1) +
+				currentString.substring(0, currentString.length - 1) +
 				e.target.innerHTML
 			input.innerHTML = newString
-		} else if (current_string.length == 0) {
+		} else if (currentString.length == 0) {
 			console.log('enter a number first')
 		} else {
 			input.innerHTML += e.target.innerHTML
@@ -92,7 +92,7 @@ result.addEventListener('click', function () {
 		add = operators.indexOf('+')
 	}
 	input.innerHTML = numbers[0]
-	result_displayed = true
+	resultDisplayed = true
 })
 
 clear.addEventListener('click', function () {
