@@ -9,7 +9,7 @@ var input = document.getElementById('input'), // input/output button
 
 // adding click handlers to number buttons
 for (var i = 0; i < number.length; i++) {
-	number[i].addEventListener('click', function (e) {
+	number[i].addEventListener('click', (e) => {
 		var currentString = input.innerHTML
 		var lastChar = currentString[currentString.length - 1]
 		if (resultDisplayed === false) {
@@ -32,7 +32,7 @@ for (var i = 0; i < number.length; i++) {
 
 // adding click handlers to number buttons
 for (var i = 0; i < operator.length; i++) {
-	operator[i].addEventListener('click', function (e) {
+	operator[i].addEventListener('click', (e) => {
 		var currentString = input.innerHTML
 		var lastChar = currentString[currentString.length - 1]
 		if (
@@ -54,7 +54,7 @@ for (var i = 0; i < operator.length; i++) {
 }
 
 // on click of 'equal' button
-result.addEventListener('click', function () {
+result.addEventListener('click', () => {
 	var inputString = input.innerHTML
 	var numbers = inputString.split(/\+|\-|\×|\÷/g)
 	var operators = inputString.replace(/[0-9]|\./g, '').split('')
@@ -99,6 +99,6 @@ result.addEventListener('click', function () {
 })
 
 // clearing the input on press of clear
-clear.addEventListener('click', function () {
+clear.addEventListener('click', () => {
 	input.innerHTML = ''
 })
