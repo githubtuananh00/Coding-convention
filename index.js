@@ -1,12 +1,13 @@
 'use strict'
 
-var input = document.getElementById('input'),
-	number = document.querySelectorAll('.numbers div'),
-	operator = document.querySelectorAll('.operators div'),
-	result = document.getElementById('result'),
-	clear = document.getElementById('clear'),
-	resultDisplayed = false
+var input = document.getElementById('input'), // input/output button
+	number = document.querySelectorAll('.numbers div'), // number buttons
+	operator = document.querySelectorAll('.operators div'), // operator buttons
+	result = document.getElementById('result'), // equal button
+	clear = document.getElementById('clear'), // clear button
+	resultDisplayed = false // flag to keep an eye on what output is displayed
 
+// adding click handlers to number buttons
 for (var i = 0; i < number.length; i++) {
 	number[i].addEventListener('click', function (e) {
 		var currentString = input.innerHTML
@@ -29,6 +30,7 @@ for (var i = 0; i < number.length; i++) {
 	})
 }
 
+// adding click handlers to number buttons
 for (var i = 0; i < operator.length; i++) {
 	operator[i].addEventListener('click', function (e) {
 		var currentString = input.innerHTML
@@ -51,6 +53,7 @@ for (var i = 0; i < operator.length; i++) {
 	})
 }
 
+// on click of 'equal' button
 result.addEventListener('click', function () {
 	var inputString = input.innerHTML
 	var numbers = inputString.split(/\+|\-|\×|\÷/g)
@@ -95,6 +98,7 @@ result.addEventListener('click', function () {
 	resultDisplayed = true
 })
 
+// clearing the input on press of clear
 clear.addEventListener('click', function () {
 	input.innerHTML = ''
 })
